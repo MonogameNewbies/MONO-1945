@@ -1,11 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using MonoGame.Extended;
-using MonoGame.Extended.Sprites;
-
-namespace Mono_1945
+﻿namespace Mono_1945
 {
+    using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Graphics;
+    using Microsoft.Xna.Framework.Input;
+    using MonoGame.Extended;
+    using MonoGame.Extended.Sprites;
+    using GameObjects;
+    using Mono_1945.Enums;
+
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
@@ -14,12 +16,11 @@ namespace Mono_1945
         Texture2D texture;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        Plane plane;
+        GameState CurrentGameState { get; set; }
+        AirPlane plane;
         
         public Game1()
-        {
-            
+        {            
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
@@ -33,7 +34,8 @@ namespace Mono_1945
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
+            CurrentGameState = GameState.InGame;
+
             base.Initialize();
         }
 
@@ -45,9 +47,7 @@ namespace Mono_1945
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            plane = new Plane(Content.Load<Texture2D>("player"),graphics);
-            
-
+            plane = new AirPlane(Content.Load<Texture2D>("player"),graphics);
             // TODO: use this.Content to load your game content here
         }
 
@@ -70,7 +70,15 @@ namespace Mono_1945
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            plane.Update(gameTime);
+            switch (CurrentGameState)
+            {
+                case GameState.InGame:
+                    plane.Update(gameTime);
+                    break;
+                case GameState.Settings:
+                    break;
+            }
+            
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -85,7 +93,16 @@ namespace Mono_1945
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            plane.Draw(spriteBatch);
+
+            switch (CurrentGameState)
+            {
+                case GameState.InGame:
+                    plane.Draw(spriteBatch);
+                    break;
+                case GameState.Settings:
+                    break;
+            }
+            
             spriteBatch.End();
 
             base.Draw(gameTime);
