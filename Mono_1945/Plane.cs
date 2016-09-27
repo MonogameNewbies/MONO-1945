@@ -60,7 +60,7 @@ namespace Mono_1945
                 
                 if (state.IsKeyDown(key.Key))
                 {
-                    Console.WriteLine("hahaha");
+                    
 
                     tmpDirection = key.Value;
                 }
