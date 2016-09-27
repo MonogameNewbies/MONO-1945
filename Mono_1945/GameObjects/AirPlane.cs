@@ -20,6 +20,7 @@
         public Vector2 Position { get { return sprite.Position; } }
         Viewport viewport;
         float speed = 400;
+
         public AirPlane(Texture2D texture, GraphicsDeviceManager graphics)
         {
             sprite = new Sprite(texture);
@@ -52,7 +53,7 @@
 
                 if (state.IsKeyDown(key.Key))
                 {
-                    Console.WriteLine("hahaha");
+
 
                     tmpDirection = key.Value;
                 }

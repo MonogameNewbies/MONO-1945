@@ -13,7 +13,6 @@
     /// </summary>
     public class Game1 : Game
     {
-        Texture2D texture;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         GameState CurrentGameState { get; set; }
