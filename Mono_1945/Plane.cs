@@ -60,8 +60,6 @@ namespace Mono_1945
                 
                 if (state.IsKeyDown(key.Key))
                 {
-                    
-
                     tmpDirection = key.Value;
                 }
             }
