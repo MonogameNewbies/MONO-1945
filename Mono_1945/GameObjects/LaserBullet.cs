@@ -7,19 +7,22 @@
     using System.Threading.Tasks;
     using Microsoft.Xna.Framework.Graphics;
     using MonoGame.Extended.Sprites;
-    
-    public class LaserBullet
-    {
-        Sprite bullet;
+    using Microsoft.Xna.Framework;
 
+    public class LaserBullet : BaseGameObject
+    {
         public LaserBullet(Texture2D texture)
+            : base(texture)
         {
-            bullet = new Sprite(texture);
         }
 
-        public void Update()
+        public override void Update(GameTime gameTime)
         {
-            
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
         }
     }
 }

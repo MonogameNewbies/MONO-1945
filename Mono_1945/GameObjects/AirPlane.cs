@@ -12,32 +12,32 @@
     using MonoGame.Extended.InputListeners;
     using MonoGame.Extended.Sprites;
 
-    public class AirPlane
+    public class AirPlane : BaseGameObject
     {
-        Sprite sprite;
         KeyboardState state;
         Vector2 Direction;
-        public Vector2 Position { get { return sprite.Position; } }
+        public Vector2 Position { get { return SpriteObject.Position; } }
         Viewport viewport;
         float speed = 400;
 
         public AirPlane(Texture2D texture, GraphicsDeviceManager graphics)
+            : base(texture)
         {
-            sprite = new Sprite(texture);
-
             viewport = new Viewport(graphics.GraphicsDevice.Viewport.Bounds);
-            sprite.Position = new Vector2(viewport.Width / 2, viewport.Height - sprite.GetBoundingRectangle().Height / 2);
+            SpriteObject.Position = new Vector2(
+                viewport.Width / 2, viewport.Height - SpriteObject.GetBoundingRectangle().Height / 2);
         }
 
-        public void Update(GameTime dt)
+        public override void Update(GameTime gameTime)
         {
             state = Keyboard.GetState();
-            Move(dt);
+
+            Move(gameTime);
         }
 
-        public void Draw(SpriteBatch batch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(batch);
+            base.Draw(spriteBatch);
         }
 
         Vector2 InputHandler()
@@ -50,11 +50,8 @@
 
             foreach (var key in KeyMap)
             {
-
                 if (state.IsKeyDown(key.Key))
                 {
-
-
                     tmpDirection = key.Value;
                 }
             }
@@ -67,7 +64,7 @@
             Direction = InputHandler();
             Vector2 newPosition = Position + ((Direction * (float)dt.ElapsedGameTime.TotalSeconds) * speed);
 
-            sprite.Position = newPosition;
+            SpriteObject.Position = newPosition;
         }
     }
 }
