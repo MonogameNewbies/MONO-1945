@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\bin\DesktopGL\x86\Debug\OpenTK.dll.config
 D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\bin\DesktopGL\x86\Debug\Mono_1945.exe
 D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\bin\DesktopGL\x86\Debug\Mono_1945.pdb
@@ -9,3 +10,17 @@ D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\obj\x86\Debug\Mono_1945.csproj
 D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\obj\x86\Debug\Mono_1945.exe
 D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\obj\x86\Debug\Mono_1945.pdb
 D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\bin\DesktopGL\x86\Debug\Content\player.xnb
+=======
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\obj\x86\Debug\Mono_1945.exe
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\obj\x86\Debug\Mono_1945.pdb
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\bin\DesktopGL\x86\Debug\Content\player.xnb
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\bin\DesktopGL\x86\Debug\Mono_1945.exe
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\bin\DesktopGL\x86\Debug\Mono_1945.pdb
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\bin\DesktopGL\x86\Debug\MonoGame.Extended.dll
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\bin\DesktopGL\x86\Debug\NVorbis.dll
+E:\Development\Projects\Desktop\Mono-1945\Mono_1945\bin\DesktopGL\x86\Debug\OpenTK.dll
+D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\obj\x86\Debug\Mono_1945.exe
+D:\Monogame_Nelzkie\Mono_1945\Mono_1945\Mono_1945\obj\x86\Debug\Mono_1945.pdb
+>>>>>>> 8d0b24a28168533a6d0e37feaa174d17f6e306dc
