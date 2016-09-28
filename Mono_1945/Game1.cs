@@ -6,7 +6,7 @@
     using MonoGame.Extended;
     using MonoGame.Extended.Sprites;
     using GameObjects;
-
+    using Mono_1945.Enums;
 
     /// <summary>
     /// This is the main type for your game.
