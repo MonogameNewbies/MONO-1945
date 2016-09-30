@@ -1,4 +1,7 @@
-﻿namespace Mono_1945
+﻿using System.Diagnostics;
+using Mono_1945.Screen;
+
+namespace Mono_1945
 {
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
@@ -14,10 +17,12 @@
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager GraphicsDeviceManager { get { return graphics; } }
         SpriteBatch spriteBatch;
         GameState CurrentGameState { get; set; }
-        AirPlane plane;
-        
+
+        GameScreen screen;
+        GameplayScreen gameplay;
         public Game1()
         {            
             graphics = new GraphicsDeviceManager(this);
@@ -34,7 +39,7 @@
         {
             // TODO: Add your initialization logic here
             CurrentGameState = GameState.InGame;
-
+            gameplay = new GameplayScreen(this);
             base.Initialize();
         }
 
@@ -46,7 +51,8 @@
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            plane = new AirPlane(Content.Load<Texture2D>("player"),graphics);
+           
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -72,7 +78,13 @@
             switch (CurrentGameState)
             {
                 case GameState.InGame:
-                    plane.Update(gameTime);
+                        if(!(screen is GameplayScreen))
+                        {
+                            
+                            screen = gameplay;
+                            Components.Clear();
+                            Components.Add(screen);
+                        }
                     break;
                 case GameState.Settings:
                     break;
@@ -91,18 +103,6 @@
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
-
-            switch (CurrentGameState)
-            {
-                case GameState.InGame:
-                    plane.Draw(spriteBatch);
-                    break;
-                case GameState.Settings:
-                    break;
-            }
-            
-            spriteBatch.End();
 
             base.Draw(gameTime);
         }
